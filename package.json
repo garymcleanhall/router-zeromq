@@ -3,7 +3,7 @@
   "version": "0.9.0",
   "description": "Express middleware for writing request and response data to zeromq",
   "author": "Gary McLean Hall <gary.hall@fourminutemile.co.uk>",
-  "main": "lib.js",
+  "main": "index",
   "repository": {
     "type": "git",
     "url": "https://github.com/garymcleanhall/router-zeromq.git"
@@ -20,6 +20,6 @@
     "express": "~4.10.4",
     "zmq": "~2.8.0"
   },
-  "analyize": false,
+  "analyze": false,
   "license": "MIT"
 }
