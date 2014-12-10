@@ -2,7 +2,7 @@
 
 	var express = require('express'),
 		router = express.Router(),
-		responseTime = require('reponse-time'),
+		responseTime = require('response-time'),
 		zmq = require('zmq'),
 		socket = zmq.socket('pub');
 
@@ -11,14 +11,18 @@
 	router.use(responseTime());
 
 	function publishResponse(response) {
-		socket.send(response);
+		console.log('publishing response...');
+		socket.send(['responses', JSON.stringify(response._headers)]);
+		console.dir(response._headers);
 	}
 
 	router.use(function(request, response, next) {
 
 		response.on('finish', function() { publishResponse(response) });
 		
-		socket.send(request);
+		console.log('publishing request...');
+		socket.send(['requests', JSON.stringify(request.headers)]);
+		console.dir(request.headers);
 
 		next();
 	});
