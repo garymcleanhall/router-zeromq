@@ -2,13 +2,10 @@
 
 	var express = require('express'),
 		router = express.Router(),
-		responseTime = require('response-time'),
 		zmq = require('zmq'),
 		socket = zmq.socket('pub');
 
 	socket.bindSync('tcp://127.0.0.1:3000');
-
-	router.use(responseTime());
 
 	function publishResponse(response) {
 		console.log('publishing response...');
