@@ -20,6 +20,12 @@
     "express": "~4.10.4",
     "zmq": "~2.8.0"
   },
+  "scripts": {
+    "test": "jshint index.js ./lib"
+  },
   "analyze": false,
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jshint": "^2.5.10"
+  }
 }
