@@ -21,11 +21,19 @@
     "zmq": "~2.8.0"
   },
   "scripts": {
-    "test": "jshint index.js ./lib"
+    "lint": "./node_modules/.bin/jshint index.js ./lib",
+    "pretest": "npm run-script lint",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- --recursive -R spec",
+    "posttest": "./node_modules/.bin/istanbul check-coverage"
   },
   "analyze": false,
   "license": "MIT",
   "devDependencies": {
-    "jshint": "^2.5.10"
+    "assert": "^1.1.2",
+    "istanbul": "^0.3.5",
+    "jshint": "^2.5.10",
+    "mocha": "^2.0.1",
+    "rewire": "^2.1.3",
+    "should": "^4.4.1"
   }
 }
